@@ -68,3 +68,6 @@ install(TARGETS project_rpg
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(project_rpg)
 endif()
+
+add_subdirectory(BusinessLogic)
+target_link_libraries(project_rpg PRIVATE BusinessLogic)
