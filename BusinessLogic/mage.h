@@ -1,15 +1,15 @@
-#ifndef WARRIOR_H
-#define WARRIOR_H
+#ifndef MAGE_H
+#define MAGE_H
 #include "BusinessLogic_global.h"
 #include "character.h"
 #include <Qstring>
-class BUSINESSLOGIC_EXPORT Warrior:public Character
+class BUSINESSLOGIC_EXPORT Mage:public Character
 {
 protected:
-    QString className = "Wojownik";
+    QString className = "Mag";
 public:
-    Warrior();
-    Warrior(int str,
+    Mage();
+    Mage(int str,
             int dex,
             int cons,
             int inte,
@@ -29,4 +29,4 @@ public:
 
 };
 
-#endif // WARRIOR_H
+#endif // MAGE_H

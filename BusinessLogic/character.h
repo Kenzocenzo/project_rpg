@@ -17,6 +17,7 @@ protected:
     int hp;
     int max_hp;
     bool skills[12];
+    int abilityLvl=0;
     QString name;
     QString race;
 public:
@@ -45,6 +46,7 @@ public:
     int getHp() const;
     int getMaxHp() const;
     bool getSkill(int index) const;
+    int getAbilityLvl() const;
     QString getName() const;
     QString getRace() const;
 
@@ -59,8 +61,15 @@ public:
     void setHp(int value);
     void setMaxHp(int value);
     void setSkill(int index, bool value);
+    void setAbilityLvl(int value);
     void setName(const QString& value);
     void setRace(const QString& value);
+
+    virtual QString first_ability() = 0;
+    virtual QString second_ability() = 0;
+    virtual QString third_ability() = 0;
+    virtual QString fourth_ability() = 0;
+    virtual QString fifth_ability() = 0;
 
 };
 

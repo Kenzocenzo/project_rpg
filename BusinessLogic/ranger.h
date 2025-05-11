@@ -1,15 +1,16 @@
-#ifndef WARRIOR_H
-#define WARRIOR_H
+#ifndef RANGER_H
+#define RANGER_H
+
 #include "BusinessLogic_global.h"
 #include "character.h"
 #include <Qstring>
-class BUSINESSLOGIC_EXPORT Warrior:public Character
+class BUSINESSLOGIC_EXPORT Ranger:public Character
 {
 protected:
-    QString className = "Wojownik";
+    QString className = "Łucznik";
 public:
-    Warrior();
-    Warrior(int str,
+    Ranger();
+    Ranger(int str,
             int dex,
             int cons,
             int inte,
@@ -29,4 +30,4 @@ public:
 
 };
 
-#endif // WARRIOR_H
+#endif // RANGER_H

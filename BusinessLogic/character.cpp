@@ -40,7 +40,7 @@ QString Character::toString() const {
     result += QString("RIZZ: %1\n").arg(rizz);
     result += QString("AC: %1\n").arg(ac);
     result += QString("HP: %1/%2\n").arg(hp).arg(max_hp);
-
+    result += QString("Ability Lvl: %1\n").arg(abilityLvl);
     result += "Umiejętności: ";
     for (int i = 0; i < 12; ++i) {
         result += skills[i] ? "✓ " : "✗ ";
@@ -64,6 +64,7 @@ bool Character::getSkill(int index) const {
         return skills[index];
     return false;
 }
+int Character::getAbilityLvl() const { return abilityLvl; }
 QString Character::getName() const { return name; }
 QString Character::getRace() const { return race; }
 
@@ -81,5 +82,6 @@ void Character::setSkill(int index, bool value) {
     if (index >= 0 && index < 12)
         skills[index] = value;
 }
+void Character::setAbilityLvl(int value) { ws = value; }
 void Character::setName(const QString& value) { name = value; }
 void Character::setRace(const QString& value) { race = value; }

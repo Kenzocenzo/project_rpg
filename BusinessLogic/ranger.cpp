@@ -1,28 +1,28 @@
-#include "warrior.h"
+#include "ranger.h"
 #include "character.h"
-Warrior::Warrior() {}
-Warrior::Warrior(int str,
-        int dex,
-        int cons,
-        int inte,
-        int ws,
-        int rizz,
-        int ac,
-        int hp,
-        const bool skills[12],
-        const QString& name,
+Ranger::Ranger() {}
+Ranger::Ranger(int str,
+                 int dex,
+                 int cons,
+                 int inte,
+                 int ws,
+                 int rizz,
+                 int ac,
+                 int hp,
+                 const bool skills[12],
+                 const QString& name,
                  const QString& race):Character(str,
-                         dex,
-                         cons,
-                         inte,
-                         ws,
-                         rizz,
-                         ac,
-                         hp,
-                          &skills[12],
-                          name,
-                          race){}
-QString Warrior::toString() const {
+                dex,
+                cons,
+                inte,
+                ws,
+                rizz,
+                ac,
+                hp,
+                &skills[12],
+                name,
+                race){}
+QString Ranger::toString() const {
     QString result;
     result += QString("Imię: %1\n").arg(name);
     result += QString("Rasa: %1\n").arg(race);
@@ -35,7 +35,7 @@ QString Warrior::toString() const {
     result += QString("RIZZ: %1\n").arg(rizz);
     result += QString("AC: %1\n").arg(ac);
     result += QString("HP: %1/%2\n").arg(hp).arg(max_hp);
-     result += QString("Ability Lvl: %1\n").arg(abilityLvl);
+    result += QString("Ability Lvl: %1\n").arg(abilityLvl);
     result += "Umiejętności: ";
     for (int i = 0; i < 12; ++i) {
         result += skills[i] ? "✓ " : "✗ ";
@@ -45,18 +45,18 @@ QString Warrior::toString() const {
     return result;
 }
 
-QString Warrior::first_ability(){
+QString Ranger::first_ability(){
     return "abc";
 }
-QString Warrior::second_ability(){
+QString Ranger::second_ability(){
     return "abc";
 }
-QString Warrior::third_ability(){
+QString Ranger::third_ability(){
     return "abc";
 }
-QString Warrior::fourth_ability(){
+QString Ranger::fourth_ability(){
     return "abc";
 }
-QString Warrior::fifth_ability(){
+QString Ranger::fifth_ability(){
     return "abc";
 }

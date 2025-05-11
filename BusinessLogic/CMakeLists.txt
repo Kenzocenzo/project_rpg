@@ -16,6 +16,9 @@ add_library(BusinessLogic SHARED
   character.cpp
   character.h
   warrior.h warrior.cpp
+  mage.h mage.cpp
+  ranger.h ranger.cpp
+  brainrotter.h brainrotter.cpp
 )
 
 target_link_libraries(BusinessLogic PRIVATE Qt${QT_VERSION_MAJOR}::Core)
