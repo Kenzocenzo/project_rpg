@@ -1,6 +1,7 @@
 #include "character.h"
 #include <algorithm>
 #include <QString>
+#include <time.h>
 Character::Character() {}
 Character::Character(int str,
           int dex,
@@ -85,3 +86,9 @@ void Character::setSkill(int index, bool value) {
 void Character::setAbilityLvl(int value) { ws = value; }
 void Character::setName(const QString& value) { name = value; }
 void Character::setRace(const QString& value) { race = value; }
+
+
+int Character::rollDice(int dice) const{
+
+    return rand()%dice+1;
+}

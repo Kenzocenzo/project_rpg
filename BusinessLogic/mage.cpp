@@ -46,17 +46,34 @@ QString Mage::toString() const {
 }
 
 QString Mage::first_ability(){
-    return "abc";
+    QString a = "Cięcie: 1d20 + INT, obrażenia = 2d6 + 5\n";
+    a += "Trafia za "+ QString::number(rollDice(20)+inte)+'\n';
+    a += "Mag skupia się i wypowiada cicho inkantację, celuje dłonią w przeciwnika, na jego ciele pojawia się siatka cięć zadająca: " + QString::number(rollDice(6)+rollDice(6)+5) + " obrażeń";
+    return a;
 }
 QString Mage::second_ability(){
-    return "abc";
+    QString a = "Otwarcie pieca: 1d20 + WIS, obrażenia = 3d8\n";
+    a += "Trafia za "+ QString::number(rollDice(20)+ws)+'\n';
+    a += "Powietrze zaczyna się nagrzewać. W dłoni maga buchają iskry, a następnie wybucha w nich płomień. Niczym łukiem celuje ognistą strzałą w przeciwnika i wypowiada słowo 'fuga'. Ognista strzała pędzi w przeciwnika zadając: " + QString::number(rollDice(8)+rollDice(8)+rollDice(8)) + " obrażeń";
+    return a;
 }
 QString Mage::third_ability(){
-    return "abc";
+    QString a = "Techniki odwracające: 3d6\n";
+    int b = rollDice(6)+rollDice(6)+rollDice(6);
+    a += "Mag skupia się, mnoży swoją przeklętą energię przez samą siebie tworząc pozytywną energię. Jego rany zaczynają się zasklepiać. Przywraca sobie : " + QString::number(b) + " punktów życia";
+    hp += b;
+    if(hp>max_hp) hp = max_hp;
+    return a;
 }
 QString Mage::fourth_ability(){
-    return "abc";
+    QString a = "Przeklęty relikwiarz: 1d20 + WIS, obrażenia = 3d8 + 2 na turę\n";
+    a += "Wynik rzutu "+ QString::number(rollDice(20)+ws)+'\n';
+    a += "Mag składa dłonie i wymawia inktantację: 'rozszerzenie domeny', za jego plecami pojawia się wielki ołtarz stojący na górze czaszek.\nStoi on tam aż do przerwania korzystania z tej umiejętności. Każda żyjąca istota w zasięgu działania domeny otrzymuje " + QString::number(rollDice(8)+rollDice(8)+rollDice(8)+2) + " obrażeń na turę walki";
+    return a;
 }
 QString Mage::fifth_ability(){
-    return "abc";
+    QString a = "Nie używałem tego od ery Heian: 1d20 + INT\n";
+    a += "Wynik rzutu "+ QString::number(rollDice(20)+inte)+'\n';
+    a += "Mag cicho śmieje się pod nosem szeptając inkantację. Zawiera pakt (ustal z mg), w wyniku tego zniweluj dowolną zdolność przeciwnika.";
+    return a;
 }

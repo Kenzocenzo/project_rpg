@@ -1,6 +1,5 @@
 #ifndef RANGER_H
 #define RANGER_H
-
 #include "BusinessLogic_global.h"
 #include "character.h"
 #include <Qstring>

@@ -8,11 +8,13 @@
 #include <vector>
 #include <iostream>
 #include <memory>
+#include <time.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    srand(time(NULL));
     bool tab[12]={false};
     std::vector<std::unique_ptr<Character>> postaci;
 
@@ -21,8 +23,13 @@ MainWindow::MainWindow(QWidget *parent)
     postaci.push_back(std::make_unique<Warrior>(1,1,1,1,1,1,13,20,tab,"Alron","człowiek"));
     postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
     postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
+
     for(int i=0;i<postaci.size();i++){
-        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->toString());
+        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->first_ability());
+        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->second_ability());
+        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->third_ability());
+        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->fourth_ability());
+        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->fifth_ability());
     }
 
 }

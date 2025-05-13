@@ -20,6 +20,7 @@ protected:
     int abilityLvl=0;
     QString name;
     QString race;
+    int rollDice(int dice) const;
 public:
     Character();
     virtual ~Character() = default;
@@ -64,6 +65,8 @@ public:
     void setAbilityLvl(int value);
     void setName(const QString& value);
     void setRace(const QString& value);
+
+
 
     virtual QString first_ability() = 0;
     virtual QString second_ability() = 0;

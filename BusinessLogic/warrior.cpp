@@ -1,5 +1,6 @@
 #include "warrior.h"
 #include "character.h"
+#include <QString>
 Warrior::Warrior() {}
 Warrior::Warrior(int str,
         int dex,
@@ -46,17 +47,34 @@ QString Warrior::toString() const {
 }
 
 QString Warrior::first_ability(){
-    return "abc";
+    QString a = "Cios mieczem: 1d20 + DEX, obrażenia = 2d6\n";
+    a += "Trafia za "+ QString::number(rollDice(20)+dex)+'\n';
+    a += "Wojownik zamachuje się ostrzem i zadaje: " + QString::number(rollDice(6)+rollDice(6)) + " obrażeń";
+    return a;
 }
 QString Warrior::second_ability(){
-    return "abc";
+    QString a = "Cios toporem: 1d20 + STR, obrażenia = 3d8\n";
+    a += "Trafia za "+ QString::number(rollDice(20)+str)+'\n';
+    a += "Wojownik unosi swój topór wysoko w powietrze i z impetem opuszcza go na głowę przeciwnika, zadając: " + QString::number(rollDice(8)+rollDice(8)+rollDice(8)) + " obrażeń";
+    return a;
 }
 QString Warrior::third_ability(){
-    return "abc";
+    QString a = "Mikstura leczenia: 2d6\n";
+    int b = rollDice(6)+rollDice(6);
+    a += "Wojownik wyciąga zza pasa złotą miksturę i ją zeruje lecząc: " + QString::number(b) + " punktów życia";
+    hp += b;
+    if(hp>max_hp) hp = max_hp;
+    return a;
 }
 QString Warrior::fourth_ability(){
-    return "abc";
+    QString a = "Spartański kop: 1d20 + 3STR, obrażenia = 3d10\n";
+    a += "Trafia za "+ QString::number(rollDice(20)+3*str)+'\n';
+    a += "Wojownik ładuje energię chaosu, i wykonuje potężne kopnięcie wyrzucające przeciwnika do tyłu i zadające: " + QString::number(rollDice(10)+rollDice(10)+rollDice(10)) + " obrażeń";
+    return a;
 }
 QString Warrior::fifth_ability(){
-    return "abc";
+    QString a = "Boska szarża: 1d20 + 3DEX, obrażenia = 3d20+5\n";
+    a += "Trafia za "+ QString::number(rollDice(20)+3*dex)+'\n';
+    a += "Wojownik ładuje boską energię, cofa się trzy kroki w tył, po czym wyskakuje w przód z prędkością błyskawicy, gdy zderza się z wrogiem zadaje mu: " + QString::number(rollDice(20)+rollDice(20)+rollDice(20)+5) + " obrażeń";
+    return a;
 }

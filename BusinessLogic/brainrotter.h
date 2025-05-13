@@ -1,6 +1,5 @@
 #ifndef BRAINROTTER_H
 #define BRAINROTTER_H
-
 #include "BusinessLogic_global.h"
 #include "character.h"
 #include <Qstring>
