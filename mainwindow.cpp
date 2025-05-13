@@ -5,6 +5,7 @@
 #include "BusinessLogic/ranger.h"
 #include "BusinessLogic/mage.h"
 #include "BusinessLogic/brainrotter.h"
+#include "BusinessLogic/serializer.h"
 #include <vector>
 #include <iostream>
 #include <memory>
@@ -15,21 +16,18 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     srand(time(NULL));
-    bool tab[12]={false};
+    bool tab[12]={false,false,false,false,false,false,false,false,false,false,false,false};
     std::vector<std::unique_ptr<Character>> postaci;
 
-
-    postaci.push_back(std::make_unique<Ranger>(1,1,1,1,1,1,13,20,tab,"Elrond","elf"));
-    postaci.push_back(std::make_unique<Warrior>(1,1,1,1,1,1,13,20,tab,"Alron","człowiek"));
-    postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
-    postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
-
+    postaci = Serializer::loadCharactersTxt("characters.txt");
+    // postaci.push_back(std::make_unique<Ranger>(1,1,1,1,1,1,13,20,tab,"Elrond","elf"));
+    // postaci.push_back(std::make_unique<Warrior>(1,1,1,1,1,1,13,20,tab,"Alron","człowiek"));
+    // postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
+    // postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
+    // Serializer::saveCharactersTxt(postaci, "characters.txt");
     for(int i=0;i<postaci.size();i++){
-        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->first_ability());
-        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->second_ability());
-        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->third_ability());
-        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->fourth_ability());
-        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->fifth_ability());
+        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->toString());
+
     }
 
 }

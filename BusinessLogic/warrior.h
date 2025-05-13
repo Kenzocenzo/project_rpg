@@ -5,10 +5,9 @@
 #include <Qstring>
 class BUSINESSLOGIC_EXPORT Warrior:public Character
 {
-protected:
-    QString className = "Wojownik";
 public:
     Warrior();
+    QString className = "Wojownik";
     Warrior(int str,
             int dex,
             int cons,
@@ -17,7 +16,7 @@ public:
             int rizz,
             int ac,
             int hp,
-            const bool skills[12],
+            bool skills[12],
             const QString& name,
             const QString& race);
     virtual QString toString() const override;
@@ -26,6 +25,8 @@ public:
     virtual QString third_ability() override;
     virtual QString fourth_ability() override;
     virtual QString fifth_ability() override;
+    void save(QDataStream& out) const;
+    static Warrior* load(QDataStream& in);
 
 };
 

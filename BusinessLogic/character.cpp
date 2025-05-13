@@ -1,7 +1,15 @@
 #include "character.h"
 #include <algorithm>
+#include <QFile>
+#include <QDataStream>
 #include <QString>
 #include <time.h>
+#include "warrior.h"
+#include "ranger.h"
+#include "mage.h"
+#include "brainrotter.h"
+#include <vector>
+#include <memory>
 Character::Character() {}
 Character::Character(int str,
           int dex,
@@ -11,7 +19,7 @@ Character::Character(int str,
           int rizz,
           int ac,
           int hp,
-          const bool skills[12],
+          bool skills[12],
           const QString& name,
           const QString& race)
     : str(str),
@@ -91,4 +99,36 @@ void Character::setRace(const QString& value) { race = value; }
 int Character::rollDice(int dice) const{
 
     return rand()%dice+1;
+}
+
+Character* Character::load(QDataStream& in) {
+    QString className;
+    in >> className;
+
+    if (className == "Mag")
+        return Mage::load(in);
+    else if (className == "Wojownik")
+        return Warrior::load(in);
+    else if (className == "Łucznik")
+        return Ranger::load(in);
+    else if (className == "Mózgognij")
+        return Brainrotter::load(in);
+    else
+        return nullptr;
+}
+
+void Character::saveBase(QDataStream& out) const {
+    out << str << dex << cons << inte << ws << rizz << ac << hp << max_hp;
+    for (int i = 0; i < 12; ++i) {
+        out << skills[i];
+    }
+    out << abilityLvl << name << race;
+}
+
+void Character::loadBase(QDataStream& in) {
+    in >> str >> dex >> cons >> inte >> ws >> rizz >> ac >> hp >> max_hp;
+    for (int i = 0; i < 12; ++i) {
+        in >> skills[i];
+    }
+    in >> abilityLvl >> name >> race;
 }
