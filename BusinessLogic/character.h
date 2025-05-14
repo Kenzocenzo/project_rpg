@@ -17,7 +17,7 @@ protected:
     int hp;
     int max_hp;
     bool skills[12];
-    int abilityLvl=0;
+    int abilityLvl;
     QString name;
     QString race;
     int rollDice(int dice) const;

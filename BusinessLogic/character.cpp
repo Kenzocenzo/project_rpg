@@ -35,6 +35,7 @@ Character::Character(int str,
     race(race)
 {
     std::copy(skills, skills + 12, this->skills);
+    abilityLvl = 0;
 }
 
 QString Character::toString() const {
@@ -91,7 +92,7 @@ void Character::setSkill(int index, bool value) {
     if (index >= 0 && index < 12)
         skills[index] = value;
 }
-void Character::setAbilityLvl(int value) { ws = value; }
+void Character::setAbilityLvl(int value) { abilityLvl = value; }
 void Character::setName(const QString& value) { name = value; }
 void Character::setRace(const QString& value) { race = value; }
 
