@@ -1,5 +1,7 @@
 #include "mage.h"
 #include "character.h"
+#include <QFile>
+#include <QDataStream>
 Mage::Mage() {}
 Mage::Mage(int str,
                int dex,
@@ -9,7 +11,7 @@ Mage::Mage(int str,
                int rizz,
                int ac,
                int hp,
-               const bool skills[12],
+               bool skills[12],
                const QString& name,
                const QString& race):Character(str,
                 dex,
@@ -19,7 +21,7 @@ Mage::Mage(int str,
                 rizz,
                 ac,
                 hp,
-                &skills[12],
+                skills,
                 name,
                 race){}
 QString Mage::toString() const {
@@ -76,4 +78,27 @@ QString Mage::fifth_ability(){
     a += "Wynik rzutu "+ QString::number(rollDice(20)+inte)+'\n';
     a += "Mag cicho śmieje się pod nosem szeptając inkantację. Zawiera pakt (ustal z mg), w wyniku tego zniweluj dowolną zdolność przeciwnika.";
     return a;
+}
+void Mage::save(QDataStream& out) const {
+    out << QString("Mage");
+    out << str << dex << cons << inte << ws << rizz << ac << hp << max_hp;
+    for (int i = 0; i < 12; ++i)
+        out << skills[i];
+    out << abilityLvl << name << race << className;
+}
+
+Mage* Mage::load(QDataStream& in) {
+    int str, dex, cons, inte, ws, rizz, ac, hp, max_hp, abilityLvl;
+    bool skills[12];
+    QString name, race, className;
+
+    in >> str >> dex >> cons >> inte >> ws >> rizz >> ac >> hp >> max_hp;
+    for (int i = 0; i < 12; ++i)
+        in >> skills[i];
+    in >> abilityLvl >> name >> race >> className;
+
+    Mage* w = new Mage(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
+    w->setMaxHp(max_hp);
+    w->setAbilityLvl(abilityLvl);
+    return w;
 }

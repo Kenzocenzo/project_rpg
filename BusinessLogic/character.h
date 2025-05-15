@@ -17,10 +17,12 @@ protected:
     int hp;
     int max_hp;
     bool skills[12];
-    int abilityLvl=0;
+    int abilityLvl;
     QString name;
     QString race;
     int rollDice(int dice) const;
+    void saveBase(QDataStream& out) const;
+    void loadBase(QDataStream& in);
 public:
     Character();
     virtual ~Character() = default;
@@ -32,7 +34,7 @@ public:
               int rizz,
               int ac,
               int hp,
-              const bool skills[12],
+              bool skills[12],
               const QString& name,
               const QString& race);
     virtual QString toString() const;
@@ -74,6 +76,8 @@ public:
     virtual QString fourth_ability() = 0;
     virtual QString fifth_ability() = 0;
 
+    virtual void save(QDataStream& out) const = 0;
+    static Character* load(QDataStream& in);
 };
 
 #endif // CHARACTER_H

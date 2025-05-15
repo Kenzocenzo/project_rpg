@@ -1,5 +1,7 @@
 #include "ranger.h"
 #include "character.h"
+#include <QFile>
+#include <QDataStream>
 Ranger::Ranger() {}
 Ranger::Ranger(int str,
                  int dex,
@@ -9,7 +11,7 @@ Ranger::Ranger(int str,
                  int rizz,
                  int ac,
                  int hp,
-                 const bool skills[12],
+                 bool skills[12],
                  const QString& name,
                  const QString& race):Character(str,
                 dex,
@@ -19,7 +21,7 @@ Ranger::Ranger(int str,
                 rizz,
                 ac,
                 hp,
-                &skills[12],
+                skills,
                 name,
                 race){}
 QString Ranger::toString() const {
@@ -76,4 +78,27 @@ QString Ranger::fifth_ability(){
     a += "Wynik rzutu: "+ QString::number(rollDice(20)+inte)+'\n';
     a += "Łucznik narzuca na siebie pelerynę niewidkę i znika z pola widzenia";
     return a;
+}
+void Ranger::save(QDataStream& out) const {
+    out << QString("Ranger");
+    out << str << dex << cons << inte << ws << rizz << ac << hp << max_hp;
+    for (int i = 0; i < 12; ++i)
+        out << skills[i];
+    out << abilityLvl << name << race << className;
+}
+
+Ranger* Ranger::load(QDataStream& in) {
+    int str, dex, cons, inte, ws, rizz, ac, hp, max_hp, abilityLvl;
+    bool skills[12];
+    QString name, race, className;
+
+    in >> str >> dex >> cons >> inte >> ws >> rizz >> ac >> hp >> max_hp;
+    for (int i = 0; i < 12; ++i)
+        in >> skills[i];
+    in >> abilityLvl >> name >> race >> className;
+
+    Ranger* w = new Ranger(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
+    w->setMaxHp(max_hp);
+    w->setAbilityLvl(abilityLvl);
+    return w;
 }

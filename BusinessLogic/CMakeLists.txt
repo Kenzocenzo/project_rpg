@@ -19,6 +19,7 @@ add_library(BusinessLogic SHARED
   mage.h mage.cpp
   ranger.h ranger.cpp
   brainrotter.h brainrotter.cpp
+  serializer.h serializer.cpp
 )
 
 target_link_libraries(BusinessLogic PRIVATE Qt${QT_VERSION_MAJOR}::Core)

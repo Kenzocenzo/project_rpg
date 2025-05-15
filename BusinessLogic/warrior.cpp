@@ -1,6 +1,8 @@
 #include "warrior.h"
 #include "character.h"
 #include <QString>
+#include <QFile>
+#include <QDataStream>
 Warrior::Warrior() {}
 Warrior::Warrior(int str,
         int dex,
@@ -10,7 +12,7 @@ Warrior::Warrior(int str,
         int rizz,
         int ac,
         int hp,
-        const bool skills[12],
+        bool skills[12],
         const QString& name,
                  const QString& race):Character(str,
                          dex,
@@ -20,7 +22,7 @@ Warrior::Warrior(int str,
                          rizz,
                          ac,
                          hp,
-                          &skills[12],
+                         skills,
                           name,
                           race){}
 QString Warrior::toString() const {
@@ -77,4 +79,27 @@ QString Warrior::fifth_ability(){
     a += "Trafia za "+ QString::number(rollDice(20)+3*dex)+'\n';
     a += "Wojownik ładuje boską energię, cofa się trzy kroki w tył, po czym wyskakuje w przód z prędkością błyskawicy, gdy zderza się z wrogiem zadaje mu: " + QString::number(rollDice(20)+rollDice(20)+rollDice(20)+5) + " obrażeń";
     return a;
+}
+void Warrior::save(QDataStream& out) const {
+    out << QString("Warrior");
+    out << str << dex << cons << inte << ws << rizz << ac << hp << max_hp;
+    for (int i = 0; i < 12; ++i)
+        out << skills[i];
+    out << abilityLvl << name << race << className;
+}
+
+Warrior* Warrior::load(QDataStream& in) {
+    int str, dex, cons, inte, ws, rizz, ac, hp, max_hp, abilityLvl;
+    bool skills[12];
+    QString name, race, className;
+
+    in >> str >> dex >> cons >> inte >> ws >> rizz >> ac >> hp >> max_hp;
+    for (int i = 0; i < 12; ++i)
+        in >> skills[i];
+    in >> abilityLvl >> name >> race >> className;
+
+    Warrior* w = new Warrior(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
+    w->setMaxHp(max_hp);
+    w->setAbilityLvl(abilityLvl);
+    return w;
 }

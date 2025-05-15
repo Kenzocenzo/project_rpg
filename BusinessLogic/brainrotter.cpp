@@ -1,5 +1,7 @@
 #include "brainrotter.h"
 #include "character.h"
+#include <QFile>
+#include <QDataStream>
 Brainrotter::Brainrotter() {}
 Brainrotter::Brainrotter(int str,
                int dex,
@@ -9,7 +11,7 @@ Brainrotter::Brainrotter(int str,
                int rizz,
                int ac,
                int hp,
-               const bool skills[12],
+               bool skills[12],
                const QString& name,
                const QString& race):Character(str,
                 dex,
@@ -19,7 +21,7 @@ Brainrotter::Brainrotter(int str,
                 rizz,
                 ac,
                 hp,
-                &skills[12],
+                skills,
                 name,
                 race){}
 QString Brainrotter::toString() const {
@@ -76,4 +78,27 @@ QString Brainrotter::fifth_ability(){
     a += "Trafia za "+ QString::number(rollDice(20)+str)+'\n';
     a += "Mózgognij wyjmuje wielki drewniany kij i uderza przeciwnika w głowę zadając: " + QString::number(rollDice(100)+rollDice(100)) + " obrażeń";
     return a;
+}
+void Brainrotter::save(QDataStream& out) const {
+    out << QString("Brainrotter");
+    out << str << dex << cons << inte << ws << rizz << ac << hp << max_hp;
+    for (int i = 0; i < 12; ++i)
+        out << skills[i];
+    out << abilityLvl << name << race << className;
+}
+
+Brainrotter* Brainrotter::load(QDataStream& in) {
+    int str, dex, cons, inte, ws, rizz, ac, hp, max_hp, abilityLvl;
+    bool skills[12];
+    QString name, race, className;
+
+    in >> str >> dex >> cons >> inte >> ws >> rizz >> ac >> hp >> max_hp;
+    for (int i = 0; i < 12; ++i)
+        in >> skills[i];
+    in >> abilityLvl >> name >> race >> className;
+
+    Brainrotter* w = new Brainrotter(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
+    w->setMaxHp(max_hp);
+    w->setAbilityLvl(abilityLvl);
+    return w;
 }
