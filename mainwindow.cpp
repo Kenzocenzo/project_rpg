@@ -10,6 +10,9 @@
 #include <iostream>
 #include <memory>
 #include <time.h>
+
+ // ui->NAZWALABELA->setText(ui->NAZWALABELA->text() + "\n"+ postaci.at(i)->toString());
+
 const QString abilities[4][5] = {
     {"Cios mieczem","Cios toporem","Mikstura leczenia","Spartański kop","Boska szarża"},
     {"Cięcie","Otwarcie pieca","Techniki odwracające","Przeklęty relikwiarz","Nie używałem tego od ery Heian"},
@@ -26,14 +29,14 @@ MainWindow::MainWindow(QWidget *parent)
     bool tab[12]={false,false,false,false,false,false,false,false,false,false,false,false};
     std::vector<std::unique_ptr<Character>> postaci;
 
-    postaci = Serializer::loadCharactersTxt("characters.txt");
-    // postaci.push_back(std::make_unique<Ranger>(1,1,1,1,1,1,13,20,tab,"Elrond","elf"));
-    // postaci.push_back(std::make_unique<Warrior>(1,1,1,1,1,1,13,20,tab,"Alron","człowiek"));
-    // postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
-    // postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
+    // postaci = Serializer::loadCharactersTxt("characters.txt");
+    postaci.push_back(std::make_unique<Ranger>(1,1,1,1,1,1,13,20,tab,"Elrond","elf"));
+    postaci.push_back(std::make_unique<Warrior>(1,1,1,1,1,1,13,20,tab,"Alron","człowiek"));
+    postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
+    postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
     // Serializer::saveCharactersTxt(postaci, "characters.txt");
     for(int i=0;i<postaci.size();i++){
-        ui->label->setText(ui->label->text() + "\n"+ postaci.at(i)->toString());
+        ui->testLabel->setText(ui->testLabel->text() + " "+ postaci.at(i)->getName());
 
     }
 
