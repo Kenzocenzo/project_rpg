@@ -10,15 +10,9 @@
 #include <iostream>
 #include <memory>
 #include <time.h>
+#include "globals.h"
+#include <QDebug>
 
- // ui->NAZWALABELA->setText(ui->NAZWALABELA->text() + "\n"+ postaci.at(i)->toString());
-
-const QString abilities[4][5] = {
-    {"Cios mieczem","Cios toporem","Mikstura leczenia","Spartański kop","Boska szarża"},
-    {"Cięcie","Otwarcie pieca","Techniki odwracające","Przeklęty relikwiarz","Nie używałem tego od ery Heian"},
-    {"Snajperski strzał","Grad strzał","Złote jabłko","Bonk z łuku","Niewidzialność"},
-    {"Bombardiro Crocodilo","Tralelero Tralala","Ballerina Cappucina","Lirili Larila","Tung Tung Tung Tung Tung Sahur"}};
-const QString skills[12] = {"Akrobatyka", "Opieka nad zwierzętami", "Oszustwo", "Historia", "Zastraszanie", "Przeszukiwanie","Medycyna","Percepcja","Religia","Zwinne dłonie","Skradanie","Przetrwanie"};
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -35,8 +29,9 @@ MainWindow::MainWindow(QWidget *parent)
     postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
     postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
     // Serializer::saveCharactersTxt(postaci, "characters.txt");
+
     for(int i=0;i<postaci.size();i++){
-        ui->testLabel->setText(ui->testLabel->text() + " "+ postaci.at(i)->getName());
+        qDebug() << postaci.at(i)->getName();
 
     }
 
@@ -46,4 +41,32 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+// QString filter = "Pliki tekstowe (*.txt)";
+// QString path = QFileDialog::getOpenFileName(nullptr,
+//                                             "Wybierz plik tekstowy",
+//                                             QDir::homePath(),
+//                                             filter);
+
+// if (!path.isEmpty()) {
+//     qDebug() << "Wybrana ścieżka:" << path;
+// } else {
+//     qDebug() << "Nie wybrano pliku.";
+// }
+
+
+
+
+// throw std::runtime_error("Nie wybrano pliku .txt!");
+
+
+// try {
+//     QString path = wybierzPlikTxt();
+//     qDebug() << "Wybrano plik:" << path;
+// }
+// catch (const std::exception &e) {
+//     QMessageBox::critical(nullptr, "Błąd", e.what());
+// }
+
 
