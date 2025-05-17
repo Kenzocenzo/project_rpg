@@ -23,7 +23,9 @@ Ranger::Ranger(int str,
                 hp,
                 skills,
                 name,
-                race){}
+                race){
+    className = "Łucznik";
+}
 QString Ranger::toString() const {
     QString result;
     result += QString("Imię: %1\n").arg(name);

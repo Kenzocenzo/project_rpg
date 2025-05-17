@@ -7,7 +7,6 @@ class BUSINESSLOGIC_EXPORT Ranger:public Character
 {
 public:
     Ranger();
-    QString className = "Łucznik";
     Ranger(int str,
             int dex,
             int cons,

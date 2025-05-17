@@ -1,6 +1,6 @@
 #include "globals.h"
 
-std::vector<std::unique_ptr<Character>> postaci;
+std::vector<std::unique_ptr<Character>> characters;
 
 const QString abilities[4][5] = {
     {"Cios mieczem","Cios toporem","Mikstura leczenia","Spartański kop","Boska szarża"},
@@ -9,4 +9,4 @@ const QString abilities[4][5] = {
     {"Bombardiro Crocodilo","Tralelero Tralala","Ballerina Cappucina","Lirili Larila","Tung Tung Tung Tung Tung Sahur"}};
 const QString skills[12] = {"Akrobatyka", "Opieka nad zwierzętami", "Oszustwo", "Historia", "Zastraszanie", "Przeszukiwanie","Medycyna","Percepcja","Religia","Zwinne dłonie","Skradanie","Przetrwanie"};
 
-
+int currentCharacter = -1;

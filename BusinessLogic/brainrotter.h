@@ -6,7 +6,6 @@
 class BUSINESSLOGIC_EXPORT Brainrotter:public Character
 {
 public:
-    QString className = "Mózgognij";
     Brainrotter();
     Brainrotter(int str,
            int dex,

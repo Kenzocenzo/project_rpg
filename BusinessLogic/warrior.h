@@ -7,7 +7,6 @@ class BUSINESSLOGIC_EXPORT Warrior:public Character
 {
 public:
     Warrior();
-    QString className = "Wojownik";
     Warrior(int str,
             int dex,
             int cons,

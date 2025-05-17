@@ -7,7 +7,6 @@ class BUSINESSLOGIC_EXPORT Mage:public Character
 {
 
 public:
-    QString className = "Mag";
     Mage();
     Mage(int str,
             int dex,

@@ -17,16 +17,16 @@ void Serializer::saveCharactersTxt(const std::vector<std::unique_ptr<Character>>
 
             if (const Warrior* w = dynamic_cast<const Warrior*>(c.get())) {
                 type = "Warrior";
-                className = w->className;
+                className = w->getClassName();
             } else if (const Mage* m = dynamic_cast<const Mage*>(c.get())) {
                 type = "Mage";
-                className = m->className;
+                className = m->getClassName();
             } else if (const Ranger* r = dynamic_cast<const Ranger*>(c.get())) {
                 type = "Ranger";
-                className = r->className;
+                className = r->getClassName();
             } else if (const Brainrotter* b = dynamic_cast<const Brainrotter*>(c.get())) {
                 type = "Brainrotter";
-                className = b->className;
+                className = b->getClassName();
             }
 
             out << "Class: " << type << "\n";

@@ -59,6 +59,16 @@ QString Character::toString() const {
 
     return result;
 }
+
+QString Character::toSmallString() const{
+    QString result;
+    result += name + " ";
+    result += race + " ";
+    result += "Klasa pancerza: " + QString::number(ac) + " ";
+    result += "Punkty życia: " + QString::number(hp) + "/" + QString::number(max_hp) + " ";
+    return result;
+}
+
 // Gettery
 int Character::getStr() const { return str; }
 int Character::getDex() const { return dex; }
@@ -76,6 +86,7 @@ bool Character::getSkill(int index) const {
 }
 int Character::getAbilityLvl() const { return abilityLvl; }
 QString Character::getName() const { return name; }
+QString Character::getClassName() const { return className; }
 QString Character::getRace() const { return race; }
 
 // Settery
@@ -94,6 +105,7 @@ void Character::setSkill(int index, bool value) {
 }
 void Character::setAbilityLvl(int value) { abilityLvl = value; }
 void Character::setName(const QString& value) { name = value; }
+void Character::setClassName(const QString& value) { className = value; }
 void Character::setRace(const QString& value) { race = value; }
 
 
