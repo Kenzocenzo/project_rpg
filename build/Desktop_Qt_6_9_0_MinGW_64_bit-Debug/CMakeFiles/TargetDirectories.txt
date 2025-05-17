@@ -1,9 +1,0 @@
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/project_rpg.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/install.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/project_rpg_autogen_timestamp_deps.dir
-C:/Users/aleks/Desktop/project_rpg/project_rpg/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/project_rpg_autogen.dir
