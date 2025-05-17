@@ -1,0 +1,63 @@
+# =========================
+# Qt Creator & Qt project
+# =========================
+
+# Pliki sesji Qt Creator (lokalne dla każdego użytkownika)
+*.autosave
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.user
+*.user.*
+
+# =========================
+# CMake & kompilacja
+# =========================
+
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Build katalogi (Qt Creator lub ręczne)
+build/
+build-*/
+
+# =========================
+# Pliki wynikowe (Windows)
+# =========================
+
+*.exe
+*.dll
+*.lib
+*.pdb
+*.obj
+
+# =========================
+# Qt wygenerowane pliki
+# =========================
+
+moc_*
+ui_*
+qrc_*
+
+# =========================
+# IDE / Edytory
+# =========================
+
+.idea/
+.vscode/
+
+# =========================
+# Inne śmieci
+# =========================
+
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
