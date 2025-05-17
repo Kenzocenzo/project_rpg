@@ -24,14 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     srand(time(NULL));
-    bool tab[12]={false,false,false,false,false,false,false,false,false,false,false,false};
-
-    // postaci = Serializer::loadCharactersTxt("characters.txt");
     // postaci.push_back(std::make_unique<Ranger>(1,1,1,1,1,1,13,20,tab,"Elrond","elf"));
     // postaci.push_back(std::make_unique<Warrior>(1,1,1,1,1,1,13,20,tab,"Alron","człowiek"));
     // postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
     // postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
-    // Serializer::saveCharactersTxt(postaci, "characters.txt");
 
 }
 
@@ -51,6 +47,7 @@ void MainWindow::on_importButton_clicked()
 
         if (!path.isEmpty()) {
             characters = Serializer::loadCharactersTxt(path);
+            currentCharacter = -1;
             listFiller();
         } else {
             throw std::runtime_error("Nie wybrano pliku .txt!");
@@ -74,6 +71,7 @@ void MainWindow::listFiller(){
     for(int i = 0; i<characters.size(); i++){
         ui->listWidget->addItem(characters.at(i)->toSmallString());
     }
+    characterFiller();
 }
 
 

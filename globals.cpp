@@ -2,6 +2,7 @@
 
 std::vector<std::unique_ptr<Character>> characters;
 
+const QString races[9] = {"Krasnolud", "Elf", "Niziołek", "Człowiek", "Drakon", "Gnom", "Półelf", "Półork", "Diabelstwo"};
 const QString abilities[4][5] = {
     {"Cios mieczem","Cios toporem","Mikstura leczenia","Spartański kop","Boska szarża"},
     {"Cięcie","Otwarcie pieca","Techniki odwracające","Przeklęty relikwiarz","Nie używałem tego od ery Heian"},

@@ -75,8 +75,11 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Siła: </string>
     </property>
    </widget>
    <widget class="QLabel" name="statLabel_2">
@@ -89,7 +92,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Zręczność: </string>
     </property>
    </widget>
    <widget class="QPushButton" name="rollButton_2">
@@ -110,12 +113,12 @@
      <rect>
       <x>310</x>
       <y>410</y>
-      <width>71</width>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Wytrzymałość: </string>
     </property>
    </widget>
    <widget class="QPushButton" name="rollButton_3">
@@ -136,12 +139,12 @@
      <rect>
       <x>420</x>
       <y>410</y>
-      <width>71</width>
+      <width>91</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Inteligencja: </string>
     </property>
    </widget>
    <widget class="QPushButton" name="rollButton_4">
@@ -167,7 +170,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Mądrość: </string>
     </property>
    </widget>
    <widget class="QPushButton" name="rollButton_5">
@@ -193,7 +196,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Charyzma: </string>
     </property>
    </widget>
    <widget class="QPushButton" name="rollButton_6">
@@ -297,7 +300,7 @@
      <string>Umiejętności:</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget_2">
+   <widget class="QListWidget" name="skillList">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -493,7 +496,7 @@
      <x>0</x>
      <y>0</y>
      <width>856</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
