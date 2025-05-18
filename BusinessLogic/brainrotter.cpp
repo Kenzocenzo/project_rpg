@@ -23,7 +23,9 @@ Brainrotter::Brainrotter(int str,
                 hp,
                 skills,
                 name,
-                race){}
+                race){
+    className = "Mózgognij";
+}
 QString Brainrotter::toString() const {
     QString result;
     result += QString("Imię: %1\n").arg(name);

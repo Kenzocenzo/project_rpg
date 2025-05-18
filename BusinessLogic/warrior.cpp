@@ -24,7 +24,9 @@ Warrior::Warrior(int str,
                          hp,
                          skills,
                           name,
-                          race){}
+                          race){
+    className = "Wojownik";
+}
 QString Warrior::toString() const {
     QString result;
     result += QString("Imię: %1\n").arg(name);

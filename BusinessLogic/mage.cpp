@@ -23,7 +23,9 @@ Mage::Mage(int str,
                 hp,
                 skills,
                 name,
-                race){}
+                race){
+    className = "Mag";
+}
 QString Mage::toString() const {
     QString result;
     result += QString("Imię: %1\n").arg(name);
