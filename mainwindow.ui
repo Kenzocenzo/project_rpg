@@ -53,7 +53,7 @@
      <string>Zwiększ poziom</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="rollButton">
+   <widget class="QPushButton" name="rollButton_1">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -66,7 +66,7 @@
      <string>Rzuć kością</string>
     </property>
    </widget>
-   <widget class="QLabel" name="statLabel">
+   <widget class="QLabel" name="statLabel_1">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -113,7 +113,7 @@
      <rect>
       <x>310</x>
       <y>410</y>
-      <width>91</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -124,7 +124,7 @@
    <widget class="QPushButton" name="rollButton_3">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>320</x>
       <y>460</y>
       <width>81</width>
       <height>61</height>
@@ -137,7 +137,7 @@
    <widget class="QLabel" name="statLabel_4">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>440</x>
       <y>410</y>
       <width>91</width>
       <height>41</height>
@@ -150,7 +150,7 @@
    <widget class="QPushButton" name="rollButton_4">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>440</x>
       <y>460</y>
       <width>81</width>
       <height>61</height>
@@ -163,7 +163,7 @@
    <widget class="QLabel" name="statLabel_5">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>550</x>
       <y>410</y>
       <width>71</width>
       <height>41</height>
@@ -176,7 +176,7 @@
    <widget class="QPushButton" name="rollButton_5">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>550</x>
       <y>460</y>
       <width>81</width>
       <height>61</height>
@@ -189,7 +189,7 @@
    <widget class="QLabel" name="statLabel_6">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>650</x>
       <y>410</y>
       <width>71</width>
       <height>41</height>
@@ -202,7 +202,7 @@
    <widget class="QPushButton" name="rollButton_6">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>650</x>
       <y>460</y>
       <width>81</width>
       <height>61</height>
@@ -323,7 +323,7 @@
      <string>Zdolności:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="abilityLabel">
+   <widget class="QLabel" name="abilityLabel_1">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -336,7 +336,7 @@
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="rollAbilityButton">
+   <widget class="QPushButton" name="rollAbilityButton_1">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -496,7 +496,7 @@
      <x>0</x>
      <y>0</y>
      <width>856</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
