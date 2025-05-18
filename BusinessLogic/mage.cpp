@@ -39,7 +39,7 @@ QString Mage::toString() const {
     result += QString("RIZZ: %1\n").arg(rizz);
     result += QString("AC: %1\n").arg(ac);
     result += QString("HP: %1/%2\n").arg(hp).arg(max_hp);
-    result += QString("Ability Lvl: %1\n").arg(abilityLvl);
+    result += QString("Ability Lvl: %1\n").arg(level);
     result += "Umiejętności: ";
     for (int i = 0; i < 12; ++i) {
         result += skills[i] ? "✓ " : "✗ ";
@@ -80,27 +80,4 @@ QString Mage::fifth_ability(){
     a += "Wynik rzutu "+ QString::number(rollDice(20)+inte)+'\n';
     a += "Mag cicho śmieje się pod nosem szeptając inkantację. Zawiera pakt (ustal z mg), w wyniku tego zniweluj dowolną zdolność przeciwnika.";
     return a;
-}
-void Mage::save(QDataStream& out) const {
-    out << QString("Mage");
-    out << str << dex << cons << inte << ws << rizz << ac << hp << max_hp;
-    for (int i = 0; i < 12; ++i)
-        out << skills[i];
-    out << abilityLvl << name << race << className;
-}
-
-Mage* Mage::load(QDataStream& in) {
-    int str, dex, cons, inte, ws, rizz, ac, hp, max_hp, abilityLvl;
-    bool skills[12];
-    QString name, race, className;
-
-    in >> str >> dex >> cons >> inte >> ws >> rizz >> ac >> hp >> max_hp;
-    for (int i = 0; i < 12; ++i)
-        in >> skills[i];
-    in >> abilityLvl >> name >> race >> className;
-
-    Mage* w = new Mage(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
-    w->setMaxHp(max_hp);
-    w->setAbilityLvl(abilityLvl);
-    return w;
 }

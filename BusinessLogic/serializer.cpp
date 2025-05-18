@@ -39,7 +39,7 @@ void Serializer::saveCharactersTxt(const std::vector<std::unique_ptr<Character>>
             out << "Ac: " << c->getAc() << "\n";
             out << "Hp: " << c->getHp() << "\n";
             out << "MaxHp: " << c->getMaxHp() << "\n";
-            out << "AbilityLvl: " << c->getAbilityLvl() << "\n";
+            out << "Level: " << c->getLevel() << "\n";
             out << "Name: " << c->getName() << "\n";
             out << "Race: " << c->getRace() << "\n";
             out << "Skills:";
@@ -84,7 +84,7 @@ std::vector<std::unique_ptr<Character>> Serializer::loadCharactersTxt(const QStr
                 hp = line.section(": ", 1).toInt();
             else if (line.startsWith("MaxHp:"))
                 maxHp = line.section(": ", 1).toInt();
-            else if (line.startsWith("AbilityLvl:"))
+            else if (line.startsWith("Level:"))
                 abilityLvl = line.section(": ", 1).toInt();
             else if (line.startsWith("Name:"))
                 name = line.section(": ", 1);
@@ -101,25 +101,25 @@ std::vector<std::unique_ptr<Character>> Serializer::loadCharactersTxt(const QStr
                 if (type == "Warrior") {
                     auto w = std::make_unique<Warrior>(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
                     w->setMaxHp(maxHp);
-                    w->setAbilityLvl(abilityLvl);
+                    w->setLevel(abilityLvl);
                     characters.emplace_back(std::move(w));
                 }
                 else if (type == "Mage") {
                     auto w = std::make_unique<Mage>(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
                     w->setMaxHp(maxHp);
-                    w->setAbilityLvl(abilityLvl);
+                    w->setLevel(abilityLvl);
                     characters.emplace_back(std::move(w));
                 }
                 else if (type == "Ranger") {
                     auto w = std::make_unique<Ranger>(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
                     w->setMaxHp(maxHp);
-                    w->setAbilityLvl(abilityLvl);
+                    w->setLevel(abilityLvl);
                     characters.emplace_back(std::move(w));
                 }
                 else if (type == "Brainrotter") {
                     auto w = std::make_unique<Brainrotter>(str, dex, cons, inte, ws, rizz, ac, hp, skills, name, race);
                     w->setMaxHp(maxHp);
-                    w->setAbilityLvl(abilityLvl);
+                    w->setLevel(abilityLvl);
                     characters.emplace_back(std::move(w));
                 }
             }

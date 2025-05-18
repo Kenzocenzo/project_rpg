@@ -228,9 +228,9 @@
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>190</x>
       <y>50</y>
-      <width>341</width>
+      <width>421</width>
       <height>221</height>
      </rect>
     </property>
@@ -303,9 +303,9 @@
    <widget class="QListWidget" name="skillList">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>610</y>
-      <width>101</width>
+      <width>171</width>
       <height>81</height>
      </rect>
     </property>
@@ -496,7 +496,7 @@
      <x>0</x>
      <y>0</y>
      <width>856</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

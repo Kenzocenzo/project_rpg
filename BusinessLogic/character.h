@@ -17,7 +17,7 @@ protected:
     int hp;
     int max_hp;
     bool skills[12];
-    int abilityLvl;
+    int level;
     QString name;
     QString race;
     QString className;
@@ -53,7 +53,7 @@ public:
     int getHp() const;
     int getMaxHp() const;
     bool getSkill(int index) const;
-    int getAbilityLvl() const;
+    int getLevel() const;
     QString getName() const;
     QString getRace() const;
     QString getClassName() const;
@@ -69,7 +69,7 @@ public:
     void setHp(int value);
     void setMaxHp(int value);
     void setSkill(int index, bool value);
-    void setAbilityLvl(int value);
+    void setLevel(int value);
     void setName(const QString& value);
     void setRace(const QString& value);
     void setClassName(const QString& value);
@@ -80,8 +80,7 @@ public:
     virtual QString fourth_ability() = 0;
     virtual QString fifth_ability() = 0;
 
-    virtual void save(QDataStream& out) const = 0;
-    static Character* load(QDataStream& in);
+
 };
 
 #endif // CHARACTER_H

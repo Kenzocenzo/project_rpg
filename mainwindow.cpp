@@ -25,11 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     srand(time(NULL));
     characterFiller();
-    // postaci.push_back(std::make_unique<Ranger>(1,1,1,1,1,1,13,20,tab,"Elrond","elf"));
-    // postaci.push_back(std::make_unique<Warrior>(1,1,1,1,1,1,13,20,tab,"Alron","człowiek"));
-    // postaci.push_back(std::make_unique<Mage>(1,1,1,1,1,1,13,20,tab,"Gandalf","człowiek"));
-    // postaci.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
 
+    //characters.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
 }
 
 MainWindow::~MainWindow()
@@ -125,11 +122,11 @@ void MainWindow::characterFiller(){
         ui->rollAbilityButton_4->setEnabled(false);
         ui->rollAbilityButton_5->setEnabled(false);
 
-        if(characters.at(currentCharacter)->getAbilityLvl() >= 0) ui->rollAbilityButton_1->setEnabled(true);
-        if(characters.at(currentCharacter)->getAbilityLvl() >= 1) ui->rollAbilityButton_2->setEnabled(true);
-        if(characters.at(currentCharacter)->getAbilityLvl() >= 2) ui->rollAbilityButton_3->setEnabled(true);
-        if(characters.at(currentCharacter)->getAbilityLvl() >= 3) ui->rollAbilityButton_4->setEnabled(true);
-        if(characters.at(currentCharacter)->getAbilityLvl() == 4) ui->rollAbilityButton_5->setEnabled(true);
+        if(characters.at(currentCharacter)->getLevel() >= 1) ui->rollAbilityButton_1->setEnabled(true);
+        if(characters.at(currentCharacter)->getLevel() >= 2) ui->rollAbilityButton_2->setEnabled(true);
+        if(characters.at(currentCharacter)->getLevel() >= 3) ui->rollAbilityButton_3->setEnabled(true);
+        if(characters.at(currentCharacter)->getLevel() >= 4) ui->rollAbilityButton_4->setEnabled(true);
+        if(characters.at(currentCharacter)->getLevel() == 5) ui->rollAbilityButton_5->setEnabled(true);
     } else {
         ui->nameLabel->setText("Imię: ");
         ui->raceLabel->setText("Rasa: ");

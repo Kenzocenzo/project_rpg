@@ -35,7 +35,7 @@ Character::Character(int str,
     race(race)
 {
     std::copy(skills, skills + 12, this->skills);
-    abilityLvl = 0;
+    level = 1;
 }
 
 QString Character::toString() const {
@@ -50,7 +50,7 @@ QString Character::toString() const {
     result += QString("RIZZ: %1\n").arg(rizz);
     result += QString("AC: %1\n").arg(ac);
     result += QString("HP: %1/%2\n").arg(hp).arg(max_hp);
-    result += QString("Ability Lvl: %1\n").arg(abilityLvl);
+    result += QString("Ability Lvl: %1\n").arg(level);
     result += "Umiejętności: ";
     for (int i = 0; i < 12; ++i) {
         result += skills[i] ? "✓ " : "✗ ";
@@ -62,10 +62,11 @@ QString Character::toString() const {
 
 QString Character::toSmallString() const{
     QString result;
-    result += name + " ";
+    result += name + "  ";
     result += race + " ";
-    result += "Klasa pancerza: " + QString::number(ac) + " ";
-    result += "Punkty życia: " + QString::number(hp) + "/" + QString::number(max_hp) + " ";
+    result += " Klasa pancerza: " + QString::number(ac) + " ";
+    result += " Punkty życia: " + QString::number(hp) + "/" + QString::number(max_hp) + " ";
+    result += " Poziom: " + QString::number(level) + "/5";
     return result;
 }
 
@@ -84,7 +85,7 @@ bool Character::getSkill(int index) const {
         return skills[index];
     return false;
 }
-int Character::getAbilityLvl() const { return abilityLvl; }
+int Character::getLevel() const { return level; }
 QString Character::getName() const { return name; }
 QString Character::getClassName() const { return className; }
 QString Character::getRace() const { return race; }
@@ -103,7 +104,7 @@ void Character::setSkill(int index, bool value) {
     if (index >= 0 && index < 12)
         skills[index] = value;
 }
-void Character::setAbilityLvl(int value) { abilityLvl = value; }
+void Character::setLevel(int value) { level = value; }
 void Character::setName(const QString& value) { name = value; }
 void Character::setClassName(const QString& value) { className = value; }
 void Character::setRace(const QString& value) { race = value; }
@@ -114,34 +115,3 @@ int Character::rollDice(int dice) const{
     return rand()%dice+1;
 }
 
-Character* Character::load(QDataStream& in) {
-    QString className;
-    in >> className;
-
-    if (className == "Mag")
-        return Mage::load(in);
-    else if (className == "Wojownik")
-        return Warrior::load(in);
-    else if (className == "Łucznik")
-        return Ranger::load(in);
-    else if (className == "Mózgognij")
-        return Brainrotter::load(in);
-    else
-        return nullptr;
-}
-
-void Character::saveBase(QDataStream& out) const {
-    out << str << dex << cons << inte << ws << rizz << ac << hp << max_hp;
-    for (int i = 0; i < 12; ++i) {
-        out << skills[i];
-    }
-    out << abilityLvl << name << race;
-}
-
-void Character::loadBase(QDataStream& in) {
-    in >> str >> dex >> cons >> inte >> ws >> rizz >> ac >> hp >> max_hp;
-    for (int i = 0; i < 12; ++i) {
-        in >> skills[i];
-    }
-    in >> abilityLvl >> name >> race;
-}
