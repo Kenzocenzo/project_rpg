@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "addcharacterdialog.h"
 #include "./ui_mainwindow.h"
 #include "BusinessLogic/character.h"
 #include "BusinessLogic/warrior.h"
@@ -267,5 +268,14 @@ void MainWindow::on_deleteButton_clicked()
         QMessageBox::critical(this, "Błąd", e.what());
     }
 
+}
+
+
+void MainWindow::on_addButton_clicked()
+{
+    AddCharacterDialog dialog(this);
+    if(dialog.exec() == QDialog::Accepted){
+        qDebug() << "dowolny text";
+    }
 }
 

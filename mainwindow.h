@@ -54,6 +54,8 @@ private slots:
 
     void on_deleteButton_clicked();
 
+    void on_addButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
