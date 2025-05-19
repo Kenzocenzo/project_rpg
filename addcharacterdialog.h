@@ -19,7 +19,13 @@ public:
     void hpSetter();
     void acSetter();
     void statChecker();
-    void checkBoxChecker();
+    void checkBoxChecker(int status);
+    QString getName();
+    QString getRace();
+    QString getClass();
+    void validator();
+    std::array<int, 8> getStats() const;
+    std::array<bool, 12> getSkills() const;
 
 private slots:
     void on_constEdit_valueChanged(int arg1);
@@ -35,6 +41,8 @@ private slots:
     void on_strEdit_valueChanged(int arg1);
 
     void on_rizzEdit_valueChanged(int arg1);
+
+    void on_nameEdit_textChanged(const QString &arg1);
 
 private:
     Ui::AddCharacterDialog *ui;

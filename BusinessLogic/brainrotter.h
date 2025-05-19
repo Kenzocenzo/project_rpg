@@ -16,8 +16,8 @@ public:
            int ac,
            int hp,
            bool skills[12],
-           const QString& name,
-           const QString& race);
+            QString& name,
+            QString& race);
     virtual QString toString() const override;
     virtual QString first_ability() override;
     virtual QString second_ability() override;

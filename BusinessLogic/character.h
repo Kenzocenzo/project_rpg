@@ -36,8 +36,8 @@ public:
               int ac,
               int hp,
               bool skills[12],
-              const QString& name,
-              const QString& race);
+              QString& name,
+              QString& race);
 
     virtual QString toString() const;
     QString toSmallString() const;

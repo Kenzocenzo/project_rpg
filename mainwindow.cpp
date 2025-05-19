@@ -26,8 +26,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     srand(time(NULL));
     characterFiller();
-
-    //characters.push_back(std::make_unique<Brainrotter>(1,1,1,1,1,1,13,20,tab,"Bombardiro","Krokodyl"));
 }
 
 MainWindow::~MainWindow()
@@ -275,7 +273,25 @@ void MainWindow::on_addButton_clicked()
 {
     AddCharacterDialog dialog(this);
     if(dialog.exec() == QDialog::Accepted){
-        qDebug() << "dowolny text";
+        QString imie = dialog.getName();
+        QString rasa = dialog.getRace();
+        QString klasa = dialog.getClass();
+        auto s = dialog.getStats();
+        auto u = dialog.getSkills();
+
+        if(klasa == "Wojownik"){
+            characters.push_back(std::make_unique<Warrior>(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], u.data(), imie, rasa));
+        }
+        else if(klasa == "Mag"){
+            characters.push_back(std::make_unique<Mage>(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], u.data(), imie, rasa));
+        }
+        else if(klasa == "Łucznik"){
+            characters.push_back(std::make_unique<Ranger>(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], u.data(), imie, rasa));
+        }
+        else{
+            characters.push_back(std::make_unique<Brainrotter>(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], u.data(), imie, rasa));
+        }
+        listFiller();
     }
 }
 

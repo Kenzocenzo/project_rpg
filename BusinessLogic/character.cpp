@@ -20,8 +20,8 @@ Character::Character(int str,
           int ac,
           int hp,
           bool skills[12],
-          const QString& name,
-          const QString& race)
+        QString& name,
+        QString& race)
     : str(str),
     dex(dex),
     cons(cons),
