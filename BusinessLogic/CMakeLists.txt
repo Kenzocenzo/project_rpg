@@ -20,6 +20,7 @@ add_library(BusinessLogic SHARED
   ranger.h ranger.cpp
   brainrotter.h brainrotter.cpp
   serializer.h serializer.cpp
+  ../globals.h ../globals.cpp
 )
 
 target_link_libraries(BusinessLogic PRIVATE Qt${QT_VERSION_MAJOR}::Core)
