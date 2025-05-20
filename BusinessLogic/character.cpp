@@ -10,6 +10,7 @@
 #include "brainrotter.h"
 #include <vector>
 #include <memory>
+#include "../globals.h"
 Character::Character() {}
 Character::Character(int str,
           int dex,
@@ -20,8 +21,8 @@ Character::Character(int str,
           int ac,
           int hp,
           bool skills[12],
-          const QString& name,
-          const QString& race)
+        QString& name,
+        QString& race)
     : str(str),
     dex(dex),
     cons(cons),
@@ -113,5 +114,37 @@ void Character::setRace(const QString& value) { race = value; }
 int Character::rollDice(int dice) const{
 
     return rand()%dice+1;
+}
+
+void Character::levelUp(int stat, QString skill){
+    ac+=1;
+    max_hp+=5;
+    hp = max_hp;
+    level+=1;
+    switch(stat){
+    case 0:
+        str+=1;
+        break;
+    case 1:
+        dex+=1;
+        break;
+    case 2:
+        cons+=1;
+        break;
+    case 3:
+        inte+=1;
+        break;
+    case 4:
+        ws+=1;
+        break;
+    case 5:
+        rizz+=1;
+    }
+    for(int i=0; i<12; i++){
+        if(::skills[i]==skill){
+            this->skills[i]=true;
+            break;
+        }
+    }
 }
 

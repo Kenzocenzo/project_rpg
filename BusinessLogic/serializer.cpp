@@ -11,6 +11,8 @@ void Serializer::saveCharactersTxt(const std::vector<std::unique_ptr<Character>>
     QFile file(filename);
     if (file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
         QTextStream out(&file);
+        out << "Karta drużyny\n";
+        out << "---\n";
         for (const auto& c : characters) {
             QString type = "Unknown";
             QString className = "";
@@ -57,6 +59,12 @@ std::vector<std::unique_ptr<Character>> Serializer::loadCharactersTxt(const QStr
     QFile file(filename);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
+
+        QString firstLine = in.readLine().trimmed();
+        if (firstLine != "Karta drużyny") {
+            throw std::runtime_error("Nieprawidłowy format pliku.");
+        }
+        in.readLine();
 
         QString line, type, name, race, className;
         int str, dex, cons, inte, ws, rizz, ac, hp, maxHp, abilityLvl;

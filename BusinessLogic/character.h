@@ -22,8 +22,6 @@ protected:
     QString race;
     QString className;
     int rollDice(int dice) const;
-    void saveBase(QDataStream& out) const;
-    void loadBase(QDataStream& in);
 public:
     Character();
     virtual ~Character() = default;
@@ -36,8 +34,8 @@ public:
               int ac,
               int hp,
               bool skills[12],
-              const QString& name,
-              const QString& race);
+              QString& name,
+              QString& race);
 
     virtual QString toString() const;
     QString toSmallString() const;
@@ -73,6 +71,8 @@ public:
     void setName(const QString& value);
     void setRace(const QString& value);
     void setClassName(const QString& value);
+
+    void levelUp(int stat, QString skill);
 
     virtual QString first_ability() = 0;
     virtual QString second_ability() = 0;
