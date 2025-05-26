@@ -93,7 +93,7 @@ void MainWindow::characterFiller(){
         ui->hpLabel->setText("/" + QString::number(characters.at(currentCharacter)->getMaxHp()) + " punktów zdrowia");
         ui->statLabel_1->setText("Siła: " + QString::number(characters.at(currentCharacter)->getStr()));
         ui->statLabel_2->setText("Zręczność: " + QString::number(characters.at(currentCharacter)->getDex()));
-        ui->statLabel_3->setText("Wytrzymałość:" + QString::number(characters.at(currentCharacter)->getCons()));
+        ui->statLabel_3->setText("Wytrzymałość: " + QString::number(characters.at(currentCharacter)->getCons()));
         ui->statLabel_4->setText("Inteligencja: " + QString::number(characters.at(currentCharacter)->getInte()));
         ui->statLabel_5->setText("Mądrość: " + QString::number(characters.at(currentCharacter)->getWs()));
         ui->statLabel_6->setText("Charyzma: " + QString::number(characters.at(currentCharacter)->getRizz()));
