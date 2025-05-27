@@ -8,6 +8,7 @@
 #include "BusinessLogic/mage.h"
 #include "BusinessLogic/brainrotter.h"
 #include "BusinessLogic/serializer.h"
+#include "errors.h"
 #include <vector>
 #include <iostream>
 #include <memory>
@@ -50,7 +51,7 @@ void MainWindow::on_importButton_clicked()
             listFiller();
             ui->exportButton->setEnabled(true);
         } else {
-            throw std::runtime_error("Nie wybrano pliku .txt!");
+            throw NoFileException();
         }
     }
     catch (const std::exception &e) {
@@ -262,7 +263,7 @@ void MainWindow::on_deleteButton_clicked()
         QListWidgetItem *item = ui->listWidget->currentItem();
 
         int index = ui->listWidget->row(item);
-        if(index<0) throw std::runtime_error("Nie wybrano żadnej postaci");
+        if(index<0) throw NoCharacterException();
         QMessageBox::StandardButton reply;
         reply = QMessageBox::question(
             this,                                  // parent

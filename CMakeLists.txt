@@ -27,6 +27,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         globals.cpp
         addcharacterdialog.h addcharacterdialog.cpp addcharacterdialog.ui
         levelupdialog.h levelupdialog.cpp levelupdialog.ui
+        errors.h
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET project_rpg APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
