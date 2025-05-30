@@ -50,9 +50,9 @@ void MainWindow::on_importButton_clicked()
             currentCharacter = -1;
             listFiller();
             ui->exportButton->setEnabled(true);
-        } else {
-            throw NoFileException();
-        }
+        } //else {
+            //throw NoFileException();
+        //}
     }
     catch (const std::exception &e) {
         QMessageBox::critical(this, "Błąd", e.what());
@@ -263,7 +263,7 @@ void MainWindow::on_deleteButton_clicked()
         QListWidgetItem *item = ui->listWidget->currentItem();
 
         int index = ui->listWidget->row(item);
-        if(index<0) throw NoCharacterException();
+        //if(index<0) throw NoCharacterException();
         QMessageBox::StandardButton reply;
         reply = QMessageBox::question(
             this,                                  // parent
