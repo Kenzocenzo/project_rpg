@@ -6,6 +6,7 @@
 #include "Mage.h"
 #include "Ranger.h"
 #include "Brainrotter.h"
+#include "../errors.h"
 
 void Serializer::saveCharactersTxt(const std::vector<std::unique_ptr<Character>>& characters, const QString& filename) {
     QFile file(filename);
@@ -62,7 +63,7 @@ std::vector<std::unique_ptr<Character>> Serializer::loadCharactersTxt(const QStr
 
         QString firstLine = in.readLine().trimmed();
         if (firstLine != "Karta drużyny") {
-            throw std::runtime_error("Nieprawidłowy format pliku.");
+            throw WrongFormatException();
         }
         in.readLine();
 
