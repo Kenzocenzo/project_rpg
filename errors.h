@@ -14,4 +14,10 @@ public:
     NoCharacterException():exception("Nie wybrano żadnej postaci"){}
 };
 
+class WrongFormatException: public exception
+{
+public:
+    WrongFormatException():exception("Nieprawidłowy format pliku."){}
+};
+
 #endif // ERRORS_H

@@ -21,6 +21,7 @@ add_library(BusinessLogic SHARED
   brainrotter.h brainrotter.cpp
   serializer.h serializer.cpp
   ../globals.h ../globals.cpp
+  ../errors.h
 )
 
 target_link_libraries(BusinessLogic PRIVATE Qt${QT_VERSION_MAJOR}::Core)
